@@ -1,0 +1,19 @@
+name: Release Workflow
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and release
+        run: |
+          echo "Building the project"
+          echo "Releasing version $GITHUB_REF"
